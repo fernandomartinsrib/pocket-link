@@ -1,6 +1,11 @@
 package shortener
 
-import "github.com/jaevor/go-nanoid"
+import (
+	"fmt"
+	"pocket-link/config"
+
+	"github.com/jaevor/go-nanoid"
+)
 
 const (
 	customUrlLength = 12
@@ -8,10 +13,16 @@ const (
 )
 
 func Encode(longUrl string) (string, error) {
-	shortUrl, err := nanoid.CustomASCII(base62Alphabet, customUrlLength)
+	config, err := config.LoadConfig("../..")
 	if err != nil {
 		return "", err
 	}
 
-	return shortUrl(), nil
+	enc, err := nanoid.CustomASCII(base62Alphabet, customUrlLength)
+	if err != nil {
+		return "", err
+	}
+
+	shortUrl := fmt.Sprintf("%s/%s", config.Domain, enc())
+	return shortUrl, nil
 }

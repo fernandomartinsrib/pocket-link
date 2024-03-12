@@ -9,7 +9,7 @@ import (
 )
 
 func TestCreateUrl(t *testing.T) {
-	longUrl := "http://example-1.com"
+	longUrl := "http://huge-url.com"
 
 	shortUrl, err := shortener.Encode(longUrl)
 	require.NoError(t, err)
