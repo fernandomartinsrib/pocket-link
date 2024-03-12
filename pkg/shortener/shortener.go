@@ -8,7 +8,7 @@ const (
 )
 
 func Encode(longUrl string) (string, error) {
-	shortUrl, err := nanoid.CustomASCII(base62Alphabet, customUrlLenght)
+	shortUrl, err := nanoid.CustomASCII(base62Alphabet, customUrlLength)
 	if err != nil {
 		return "", err
 	}

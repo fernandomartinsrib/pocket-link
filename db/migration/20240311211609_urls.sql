@@ -1,6 +1,6 @@
 -- migrate:up
 CREATE TABLE urls (
-    id bigint,
+    id bigserial PRIMARY KEY,
     long_url varchar not null,
     short_url varchar not null,
     created_at timestamptz NOT NULL DEFAULT (now()),
