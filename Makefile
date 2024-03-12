@@ -16,3 +16,6 @@ migrate-down:
 
 test:
 	go test ./... -v
+
+sqlc:
+	sqlc generate

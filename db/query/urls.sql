@@ -1,7 +1,7 @@
 -- name: CreateUrl :one
 INSERT INTO urls (
     long_url,
-    short_url,
+    short_url
 ) VALUES (
   $1, $2
 )
