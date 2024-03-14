@@ -1,7 +1,6 @@
 package api
 
 import (
-	"fmt"
 	"net/http"
 	"pocket-link/config"
 	db "pocket-link/db/sqlc"
@@ -34,11 +33,5 @@ func (server *Server) setupServeMux() error {
 }
 
 func (server *Server) Start() error {
-	if err := http.ListenAndServe("localhost:8080", server.mux); err != nil {
-		return err
-	}
-
-	fmt.Print("listening to :8080")
-
-	return nil
+	return http.ListenAndServe(":8080", server.mux)
 }
