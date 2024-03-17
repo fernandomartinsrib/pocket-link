@@ -1,4 +1,4 @@
-.PHONY: stop-postgres start-postgres migration-up migration-down
+.PHONY: stop-postgres start-postgres migration-up migration-down test sqlc server
 
 start-postgres:
 	docker compose up -d
